@@ -1,0 +1,80 @@
+<div class="container-fluid">
+    <app-vendorheader></app-vendorheader>
+    <br/>
+   
+    <div class="row">
+
+        <div class="col-lg-2 ml-2">
+            <app-vendorsidemenu></app-vendorsidemenu>
+        </div>
+      
+        <div class="col-lg-9 ml-5 bg-light">                
+             <h1>My Orders</h1>                    
+            <br/>
+            <div *ngIf="orderinfo" >
+
+                    <div class="container-fluid bg-white" *ngFor="let order of orderinfo">                           
+                                <table class="table mb-5 ">
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">Order Id</th>
+                                        <td>{{order.OrderId}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Customer Name</th>
+                                        <td>{{order.CustomerName}}</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Customer Location</th>
+                                        <td>{{order.CustomerLocation}}</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">FoodName</th>
+                                        <td>{{order.FoodName}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Food Details</th>
+                                        <td>{{order.FoodDetails}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Food FoodRating</th>
+                                        <td>{{order.FoodRating}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Order Quantity</th>
+                                        <td>{{order.OrderQuantity}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Order Amount</th>
+                                        <td>{{order.OrderAmount}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Order Date</th>
+                                        <td>{{order.OrderDate | date:"dd/MM/yyyy"}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Order Time</th>
+                                        <td>{{order.OrderTime}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Order Status</th>
+                                        <td>{{order.OrderStatus}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Order Location</th>
+                                        <td>{{order.OrderLocation}}</td>
+                                    </tr>
+
+
+                                    </tbody>
+                                </table>
+     </div>
+            </div>
+                                
+        </div>
+    </div>
+
+
+</div>

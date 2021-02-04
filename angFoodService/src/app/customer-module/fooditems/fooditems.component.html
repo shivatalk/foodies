@@ -1,0 +1,21 @@
+
+<div class="container m-0 p-0 " *ngIf="items">
+    <div class="row m-0 p-0" >
+        <div class="col-lg-4 mt-2 p-1" *ngFor="let item of items">
+            <div class="card p-1 p-0 m-0" style="width:300px;">
+                <img src="../../../assets/dosa.jpeg" class="card-img-top" alt="...">
+                <div class="card-body text-center m-0 p-1">
+                <h5 class="card-title m-1 p-0">{{item.FoodName  | titlecase}}</h5>
+                <p class="card-text m-0 p-0">{{item.FoodDetails  | titlecase}}</p>
+                <h4 class="m-0 p-0">Price :{{item.FoodPrice}}/-</h4>
+                <div class="d-flex justify-content-between ">
+                    <h6 class="">{{item.RestaurantName  | titlecase}}</h6>
+                    <h6 class="">Rating : {{item.FoodRating}} </h6>            
+                </div>
+            <button class="btn btn-primary" (click)="OrderNow(item)">Order Now</button>
+            </div>
+        </div>     
+     
+    </div>
+</div>
+</div>

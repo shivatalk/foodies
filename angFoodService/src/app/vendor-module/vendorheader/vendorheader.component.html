@@ -1,0 +1,29 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="#" class="navbar-brand">
+        <img src="../../../favicon.ico" height="30" alt="CoolBrand">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['']" >Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/About']" >About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/Services']" >Services</a>
+        </li>
+      </ul>
+      <span class="navbar-text ">
+       <h6 > Welcome,{{vendoremail}} </h6>
+      </span>
+      <a class="navbar-brand" href="#">
+        <img src="../../assets/avatarlogo.png" width="35" height="35" class="d-inline-block align-top" alt="">
+      </a>
+     
+    </div>
+  </nav>

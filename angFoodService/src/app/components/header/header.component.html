@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+  <a href="#" class="navbar-brand">
+      <img src="../../../favicon.ico" height="30" alt="CoolBrand">
+  </a>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav">
+          <a [routerLink]="['']"  class="nav-item nav-link active">Home</a>
+          <a [routerLink]="['/About']" class="nav-item nav-link">About</a>
+          <a [routerLink]="['/Services']"  class="nav-item nav-link">Services</a>
+          <div *ngIf="issession">
+              
+            <a *ngIf="isuser" [routerLink]="['/Customer']"  class="nav-item nav-link">Dashboard</a>
+            <a *ngIf="isrestaurant" [routerLink]="['/Vendor']"  class="nav-item nav-link">Dashboard</a>
+        
+        </div>
+          
+         
+      </div>
+
+      <div *ngIf="!issession" class="navbar-nav ml-auto">
+          <a  [routerLink]="['/login']"  class="nav-item nav-link">Login</a>
+          <a  [routerLink]="['/signup']"  class="nav-item nav-link"><i></i>Signup</a>
+      </div>
+
+      <div *ngIf="issession"  class="navbar-nav ml-auto">
+      <span class="navbar-text ">
+        <p > Welcome,{{useremail}} </p>
+       </span>
+       <a class="navbar-brand" href="#">
+         <img src="../../assets/avatarlogo.png" width="35" height="35" class="d-inline-block align-top" alt="">
+       </a>
+    </div>
+
+  </div>
+</nav>

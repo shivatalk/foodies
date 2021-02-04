@@ -1,0 +1,25 @@
+<div class="container bg-light">
+
+<div class="text-center"><h4> <i class="fa fa-money fa-3x"></i></h4><h4> Select Payment Method </h4></div>
+<br/>
+
+<div *ngIf="ispay" class="text-center">
+   <h3> <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br/>Processing....</h3>
+   <span class="sr-only">Loading...</span>
+   </div>
+
+<div *ngIf="issuccess" class="alert alert-success">
+    Payment Completed Successfully....
+</div>
+
+<div class="jumbotron ml-5 ">
+    <h5 style="cursor:pointer;"><input type="radio" class="form-check-input" checked name="optradio"><i class="fa fa-paypal fa-3x p-2 "> </i>PayPal</h5>
+    <h5 style="cursor:pointer;"><input type="radio" class="form-check-input" name="optradio"><i class="fa fa-credit-card fa-3x p-2"> </i>Debit Card</h5>
+    <h5 style="cursor:pointer;"><input type="radio" class="form-check-input" name="optradio"><i class="fa fa-university fa-3x p-2"> </i>Net Banking</h5>
+    <h5 style="cursor:pointer;"><input type="radio" class="form-check-input" name="optradio"><i class="fa fa-google fa-3x p-2"> </i>Google Pay</h5>
+    <br/>
+    <button class="col-lg-10 btn btn-success" (click)="pay()" >Pay Now</button>
+</div>
+
+
+</div>

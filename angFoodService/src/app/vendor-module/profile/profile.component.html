@@ -1,0 +1,79 @@
+<div class="container-fluid">
+    <app-vendorheader></app-vendorheader>
+    <br/>
+   
+    <div class="row">
+
+        <div class="col-lg-2 ml-2">
+            <app-vendorsidemenu></app-vendorsidemenu>
+        </div>
+      
+        <div class="col-lg-9 ml-5 bg-light">                
+             
+        <div class="alert alert-success" *ngIf="isUpdated">Updated Successfully..</div>
+
+        <div class="jumbotrone bg-light p-5 col-lg-10 rounded ml-5" *ngIf="isEdit">
+            <form [formGroup]="VendorForm"  (ngSubmit)="SubmitVendor()">
+    
+                <div class="form-group">
+                    <label for="foodname">Name:</label>
+                    <input type="text" class="form-control" id="foodname" formControlName="VenderName">
+                    </div>
+
+                    <div class="form-group">
+                    <label for="restaurantname">Restaurant Name:</label>
+                    <input type="text" class="form-control" id="restaurantname" formControlName="RestaurantName">
+                    </div>
+
+                    <div class="form-group">
+                    <label for="emailid">Email Id:</label>
+                    <input type="email" class="form-control" disabled id="emailid" formControlName="VendorEmailId">
+                    </div>
+        
+        
+                    <div class="form-group">
+                    <label for="mobileno">Mobile No:</label>
+                    <input type="number" minlength="10" class="form-control" id="mobileno" formControlName="VendorMobileNo">
+                    </div>
+                
+        
+                    <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea rows="5" class="form-control" id="address" formControlName="VendorAddress"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="location">Location:</label>
+                    <textarea rows="5" class="form-control" id="address" formControlName="VendorLocation"></textarea>
+                    </div>
+
+                    <button type="submit" [disabled]='!VendorForm.valid' class="btn btn-success">Update</button>&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-warning" (click)="CancelUpdate()">Cancel</button>
+        
+            </form>
+        </div>
+            
+        <div class="p-5 rounded" *ngIf="userinfo">
+            <table class="table table-dark rounded">
+                
+                <tbody>
+                
+                    <tr><th>Name</th><td>{{userinfo.VenderName}}</td></tr>
+                    <tr><th>Restaurant Name</th><td>{{userinfo.RestaurantName}}</td></tr>
+                    <tr><th>Email Id</th><td>{{userinfo.VendorEmailId}}</td></tr>
+                    <tr><th>Mobile No</th><td>{{userinfo.VendorMobileNo}}</td></tr>
+                    <tr><th>Address</th><td>{{userinfo.VendorAddress}}</td></tr>
+                    <tr><th>Location</th><td>{{userinfo.VendorLocation}}</td></tr>
+                </tbody>
+
+            </table>
+
+            <button class=" col-lg-12 btn btn-primary" (click)="Edit(userinfo)">Edit</button>
+           
+        </div>
+                          
+        </div>
+    </div>
+
+
+</div>

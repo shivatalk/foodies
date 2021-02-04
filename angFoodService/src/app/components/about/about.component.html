@@ -1,0 +1,63 @@
+<app-header></app-header>
+<div class="container-fluid">
+
+    <h1 class="text-center">
+        Add Menu Item 
+    </h1>
+
+    <div class="row">
+
+        <div class="col-lg-3">
+                <br/><br/> <br/>  <br/><br/> <br/><br/><br/> <br/>
+               
+            <div class="alert alert-success">
+                Profile updated Successfully..
+            </div>
+        </div>
+
+        <div class="jumbotrone bg-light p-5 col-lg-5 rounded ml-5">
+            <form [formGroup]="VendorForm"  (ngSubmit)="SubmitVendor()">
+    
+                <div class="form-group">
+                    <label for="foodname">Name:</label>
+                    <input type="text" class="form-control" id="foodname" formControlName="VendorName">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="restaurantname">Restaurant Name:</label>
+                    <input type="text" class="form-control" id="restaurantname" formControlName="RestaurantName">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="emailid">Email Id:</label>
+                    <input type="email" class="form-control" disabled id="emailid" formControlName="VendorEmailId">
+                  </div>
+        
+        
+                  <div class="form-group">
+                    <label for="mobileno">Mobile No:</label>
+                    <input type="number" minlength="10" class="form-control" id="mobileno" formControlName="VendorMobileNo">
+                  </div>
+               
+        
+                  <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea rows="5" class="form-control" id="address" formControlName="VendorAddress"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="location">Location:</label>
+                    <textarea rows="5" class="form-control" id="address" formControlName="VendorLocation"></textarea>
+                  </div>
+
+                  <button type="submit" [disabled]='!VendorForm.valid' class="btn btn-success">Update</button>&nbsp;&nbsp;&nbsp;
+                  <button class="btn btn-warning">Cancel</button>
+        
+            </form>
+        </div>
+       
+    </div>
+
+  
+
+</div>

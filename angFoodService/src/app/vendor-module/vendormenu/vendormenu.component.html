@@ -1,0 +1,130 @@
+
+<div class="container m-0 p-0 " >
+   
+    <div class="alert alert-success" *ngIf="inserted">
+        Item Inserted Successfully..
+    </div>
+
+    <div class="alert alert-danger" *ngIf="isdeleted">
+        Item Deleted Successfully..
+    </div>
+
+    <div class="alert alert-success" *ngIf="Updated">
+        Item Updated Successfully..
+    </div>
+   <div class="m-3">
+       <button class="col-lg-12 btn btn-success" [disabled]="clkedit" (click)="Adding()">Add Item</button>
+   </div>
+
+  
+   <!-- --------------------------------Adding Item -------------------------------------------- -->
+  
+  <div class="jumbotrone bg-light p-5 col-lg-5 rounded ml-5" *ngIf="clkadd">
+            <form [formGroup]="MenuInputForm"  (ngSubmit)="SubmitMenu()">
+    
+                <div class="form-group">
+                    <label for="foodname">Food Name:</label>
+                    <input type="text" class="form-control" id="foodname" formControlName="FoodName">
+                  </div>
+        
+                  <div class="form-group">
+                    <label for="foodprice">Food Price:</label>
+                    <input type="number" min="0" class="form-control" id="foodprice" formControlName="FoodPrice">
+                  </div>
+                        <!-- Food status Dropdown here -->
+                <div class="form-group">
+                    <label for="foodstatus">Select Food Status:</label>
+                    <select class="form-control" id="foodstatus" formControlName="FoodStatus">
+                        <option value="Available">Available</option>
+                        <option value="Not-Available">Not-Available</option>
+                    </select>
+                </div>
+        
+                <div class="form-group">
+                    <label for="foodrating">Select Food Rating:</label>
+                    <select class="form-control" id="foodrating" formControlName="FoodRating">
+                        <option value="1" >1</option>
+                        <option value="2" >2</option>
+                        <option value="3" >3</option>
+                        <option value="4" >4</option>
+                        <option value="5" selected >5</option>
+                        
+                    </select>
+                </div>
+        
+                  <div class="form-group">
+                    <label for="fooddesc">Food Description:</label>
+                    <textarea rows="5" class="form-control" id="fooddesc" formControlName="FoodDetails"></textarea>
+                  </div>
+                  <button type="submit" [disabled]='!MenuInputForm.valid' class="btn btn-success">Add</button>&nbsp;&nbsp;&nbsp;
+                  <button class="btn btn-warning" (click)="CancelAdd()">Cancel</button>
+            </form>
+        </div>
+
+    <!-----------------------------------Updating Item---------------------------------------------------------->
+
+    
+  <div class="jumbotrone bg-light p-5 col-lg-5 rounded ml-5" *ngIf="clkedit">
+    <form [formGroup]="MenuInputForm"  (ngSubmit)="SubmitMenuUpdate()">
+
+        <div class="form-group">
+            <label for="foodname">Food Name:</label>
+            <input type="text" class="form-control" id="foodname" formControlName="FoodName">
+          </div>
+
+          <div class="form-group">
+            <label for="foodprice">Food Price:</label>
+            <input type="number" min="0" class="form-control" id="foodprice" formControlName="FoodPrice">
+          </div>
+                <!-- Food status Dropdown here -->
+        <div class="form-group">
+            <label for="foodstatus">Select Food Status:</label>
+            <select class="form-control" id="foodstatus" formControlName="FoodStatus">
+                <option value="Available">Available</option>
+                <option value="Not-Available">Not-Available</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="foodrating">Select Food Rating:</label>
+            <select class="form-control" id="foodrating" formControlName="FoodRating">
+                <option value="1" >1</option>
+                <option value="2" >2</option>
+                <option value="3" >3</option>
+                <option value="4" >4</option>
+                <option value="5" selected >5</option>
+                
+            </select>
+        </div>
+
+          <div class="form-group">
+            <label for="fooddesc">Food Description:</label>
+            <textarea rows="5" class="form-control" id="fooddesc" formControlName="FoodDetails"></textarea>
+          </div>
+          <button type="submit" [disabled]='!MenuInputForm.valid' class="btn btn-success">Update</button>&nbsp;&nbsp;&nbsp;
+          <button class="btn btn-warning" (click)="CancelUpdate()">Cancel</button>
+    </form>
+</div>
+
+
+    <!-- ----------------------------------Menu Item List------------------------------------------------------------------- -->
+    <div class="row m-0 p-0" *ngIf="items">
+        <div class="col-lg-4 mt-2 p-1" *ngFor="let item of items">
+            <div class="card p-1 p-0 m-0" style="width:300px;">
+                <img src="../../../assets/dosa.jpeg" class="card-img-top" alt="...">
+                <div class="card-body text-center m-0 p-1">
+                <h5 class="card-title m-1 p-0">{{item.FoodName | titlecase }}</h5>
+                <p class="card-text m-0 p-0">{{item.FoodDetails | titlecase }}</p>
+                <h4 class="m-0 p-0">Price :{{item.FoodPrice}}/-</h4>
+                <div class="d-flex justify-content-between ">
+                    <h6 class="">{{item.FoodStatus | titlecase }}</h6>
+                    <h6 class="">Rating :{{item.FoodRating}} </h6>            
+                </div>
+            <button class="btn btn-primary" [disabled]="clkadd" (click)="Editing(item)">Edit</button>&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-warning" [disabled]="clkadd" (click)="Deleting(item.FoodId)">Delete</button>
+            </div>
+        </div>     
+     
+    </div>
+    </div>
+</div>

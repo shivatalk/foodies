@@ -1,0 +1,94 @@
+<app-header></app-header>
+
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+    <div class="card card0 border-0">
+        <div class="row d-flex">
+            <div class="col-lg-6">
+                <div class="card1 pb-5">
+                    <br />
+                    <br />
+                    <br />
+                    <!-- <div class="row"> <img src="https://i.imgur.com/CXQmsmF.png" class="logo"> </div> -->
+                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img
+                            src="../../../assets/imglogin.jpg" class="image"> </div>
+                    <!-- <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" class="image"> </div> -->
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card2 card border-0 px-4 py-5">
+                    <div class="row mb-4 px-3">
+                        <h6 class="mb-0 mr-4 mt-2">Sign in with</h6>
+                        <div class="facebook text-center mr-3">
+                            <div class="fa fa-facebook"></div>
+                        </div>
+                        <div class="twitter text-center mr-3">
+                            <div class="fa fa-twitter"></div>
+                        </div>
+                        <div class="linkedin text-center mr-3">
+                            <div class="fa fa-linkedin"></div>
+                        </div>
+                    </div>
+                    <div class="row px-3 mb-4">
+                        <div class="line"></div> <small class="or text-center">Or</small>
+                        <div class="line"></div>
+                    </div>
+<!-- --------------------------------  Form --------------------------------------------------------------------- -->
+      
+<div class="row px-3">
+    <label class="mb-1">
+        <h6 class="mb-0 text-sm">Role</h6>
+    </label>
+    <select id="role" name="roletitle" (change)="Change($event.target.value)" class="form-control">
+        <option value="" disbaled selected>Select Role</option>
+        <option value="User">User</option>
+        <option value="Restaurant">Restaurant</option>
+    </select>
+</div><br />            
+
+<form [formGroup]="loginForm" (ngSubmit)="SubmitLoginForm()">
+
+                        <div *ngIf="invalidCredential" class="alert alert-danger mb-2">
+                            Invalid Email or Password Or Role
+                        </div>
+
+                        <div class="row px-3"> 
+                            <label class="mb-1">  <h6 class="mb-0 text-sm">Email Address :</h6> </label>
+                            <small *ngIf="loginForm.get('EmailId').dirty && loginForm.get('EmailId').errors?.required" class="text-danger" >
+                                Email is Required
+                            </small>
+                            <input class="mb-4" type="text" name="email" formControlName="EmailId" placeholder="Enter a valid email address">
+                       
+                            
+                        </div>
+
+                        <div class="row px-3">
+                             <label class="mb-1"><h6 class="mb-0 text-sm">Password :</h6> </label>
+                             <small *ngIf="loginForm.get('Password').dirty && loginForm.get('Password').errors?.required" class="text-danger" >
+                                Password is Required
+                             </small>
+                            <input type="password" name="Password" formControlName="Password" placeholder="Enter password">
+                         </div>
+
+                        <br />
+
+                        <div class="row mb-3 px-3"> 
+                            <button type="submit" [disabled]="!loginForm.valid" class="btn btn-blue text-center">Login</button>
+                         </div>
+
+
+  </form>
+
+<!-- -----------------------------------form End ----------------------------------------------------- -->
+
+
+                    <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? <a
+                                class="text-danger " [routerLink]="['/signup']"
+                                routerLinkActive="router-link-active">Register</a></small> </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<app-footer></app-footer>

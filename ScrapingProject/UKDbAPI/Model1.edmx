@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PTOScrapedDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="UKChallangeDecision">
+          <Key>
+            <PropertyRef Name="BL number" />
+          </Key>
+          <Property Name="BL number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Concerning rights in" Type="varchar" MaxLength="50" />
+          <Property Name="Hearing Officer" Type="varchar" MaxLength="50" />
+          <Property Name="Decision date" Type="date" />
+          <Property Name="Person(s) or Company(s) involved" Type="text" />
+          <Property Name="Provisions discussed" Type="text" />
+          <Property Name="Keywords" Type="text" />
+          <Property Name="Related Decisions" Type="text" />
+          <Property Name="Summary" Type="text" />
+          <Property Name="PdfLink" Type="text" />
+        </EntityType>
+        <EntityContainer Name="PTOScrapedDBModelStoreContainer">
+          <EntitySet Name="UKChallangeDecision" EntityType="Self.UKChallangeDecision" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PTOScrapedDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="UKChallangeDecision">
+          <Key>
+            <PropertyRef Name="BL_number" />
+          </Key>
+          <Property Name="BL_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Concerning_rights_in" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Hearing_Officer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Decision_date" Type="DateTime" Precision="0" />
+          <Property Name="Person_s__or_Company_s__involved" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Provisions_discussed" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Keywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Related_Decisions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PdfLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="PTOScrapedDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UKChallangeDecisions" EntityType="Self.UKChallangeDecision" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PTOScrapedDBModelStoreContainer" CdmEntityContainer="PTOScrapedDBEntities">
+          <EntitySetMapping Name="UKChallangeDecisions">
+            <EntityTypeMapping TypeName="PTOScrapedDBModel.UKChallangeDecision">
+              <MappingFragment StoreEntitySet="UKChallangeDecision">
+                <ScalarProperty Name="BL_number" ColumnName="BL number" />
+                <ScalarProperty Name="Concerning_rights_in" ColumnName="Concerning rights in" />
+                <ScalarProperty Name="Hearing_Officer" ColumnName="Hearing Officer" />
+                <ScalarProperty Name="Decision_date" ColumnName="Decision date" />
+                <ScalarProperty Name="Person_s__or_Company_s__involved" ColumnName="Person(s) or Company(s) involved" />
+                <ScalarProperty Name="Provisions_discussed" ColumnName="Provisions discussed" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="Related_Decisions" ColumnName="Related Decisions" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="PdfLink" ColumnName="PdfLink" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

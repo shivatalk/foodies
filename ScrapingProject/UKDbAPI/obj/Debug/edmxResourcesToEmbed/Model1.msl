@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PTOScrapedDBModelStoreContainer" CdmEntityContainer="PTOScrapedDBEntities">
+    <EntitySetMapping Name="UKChallangeDecisions">
+      <EntityTypeMapping TypeName="PTOScrapedDBModel.UKChallangeDecision">
+        <MappingFragment StoreEntitySet="UKChallangeDecision">
+          <ScalarProperty Name="BL_number" ColumnName="BL number" />
+          <ScalarProperty Name="Concerning_rights_in" ColumnName="Concerning rights in" />
+          <ScalarProperty Name="Hearing_Officer" ColumnName="Hearing Officer" />
+          <ScalarProperty Name="Decision_date" ColumnName="Decision date" />
+          <ScalarProperty Name="Person_s__or_Company_s__involved" ColumnName="Person(s) or Company(s) involved" />
+          <ScalarProperty Name="Provisions_discussed" ColumnName="Provisions discussed" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="Related_Decisions" ColumnName="Related Decisions" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+          <ScalarProperty Name="PdfLink" ColumnName="PdfLink" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

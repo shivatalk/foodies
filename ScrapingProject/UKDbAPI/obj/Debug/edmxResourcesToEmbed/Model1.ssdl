@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PTOScrapedDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="UKChallangeDecision">
+    <Key>
+      <PropertyRef Name="BL number" />
+    </Key>
+    <Property Name="BL number" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Concerning rights in" Type="varchar" MaxLength="50" />
+    <Property Name="Hearing Officer" Type="varchar" MaxLength="50" />
+    <Property Name="Decision date" Type="date" />
+    <Property Name="Person(s) or Company(s) involved" Type="text" />
+    <Property Name="Provisions discussed" Type="text" />
+    <Property Name="Keywords" Type="text" />
+    <Property Name="Related Decisions" Type="text" />
+    <Property Name="Summary" Type="text" />
+    <Property Name="PdfLink" Type="text" />
+  </EntityType>
+  <EntityContainer Name="PTOScrapedDBModelStoreContainer">
+    <EntitySet Name="UKChallangeDecision" EntityType="Self.UKChallangeDecision" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

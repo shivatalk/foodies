@@ -2,13 +2,15 @@ import DropDown as drop
 
 class BLNumber:
 
-    def __init__(self,driver):
+    def __init__(self,driver,HearingType):
+        self.HearingType=HearingType
         self.driver=driver
-        self.Columns=['BL_number','Concerning_rights_in','Hearing_Officer','Decision_date',
-                      'Person_s__or_Company_s__involved','Provisions_discussed','Keywords','Related_Decisions']
+        self.Columns=['BLNumber','ConcerningRightsIn','HearingOfficer','DecisionDate',
+                      'PersonOrCompanyInvolved','ProvisionsDiscussion','Keywords','RelatedDecisions']
 
     def TableListData(self):
-        obj = drop.DropDownHandel(self.driver)
+
+        obj = drop.DropDownHandel(self.driver,self.HearingType)
         blnumbers = obj.GetBlNumbers()
         tableDataList = []
 
@@ -43,12 +45,19 @@ class BLNumber:
             #key = self.driver.find_element_by_xpath("//*[@id='mainCol']/div/dl/dt[" + str(i) + "]").text
             val = self.driver.find_element_by_xpath("//*[@id='mainCol']/div/dl/dd[" + str(i) + "]").text
             data[key] = val
-        sumlen=self.driver.find_elements_by_class_name('summary')
 
-        para=""
-        for textdata in sumlen:
-            para =para+textdata.text
-        data["Summary"] =para
+
+        try:
+            sumlen=self.driver.find_elements_by_class_name('summary')
+            para=""
+            for textdata in sumlen:
+                para =para+textdata.text
+            data["Summary"] =para
+        except:
+            data["Summary"]=""
+
         data["PdfLink"]="https://www.ipo.gov.uk/p-challenge-decision-results/"+bl+".pdf"
+        data["HearingType"]=self.HearingType
+        data["Status"]="Activated"
         return data
 

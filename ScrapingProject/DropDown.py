@@ -3,13 +3,13 @@ import Scraping1 as conf
 
 class DropDownHandel:
 
-    def __init__(self,driver):
+    def __init__(self,driver,HearingType):
         self.driver = driver
-        self.HearingType=conf.Configuration.HearingType
-        self.MonthFrom = conf.Configuration.MonthFrom
-        self.YearFrom = conf.Configuration.YearFrom
-        self.MonthTo = conf.Configuration.MonthTo
-        self.YearTo = conf.Configuration.YearTo
+        self.HearingType=HearingType
+        self.MonthFrom = conf.Configuration.GetMonthFrom()
+        self.YearFrom = conf.Configuration.GetYearFrom()
+        self.MonthTo = conf.Configuration.GetMonthTo()
+        self.YearTo = conf.Configuration.GetYearTo()
 
 
 
@@ -33,16 +33,16 @@ class DropDownHandel:
 
     def __SetStartingMonthYear(self,MonthFrom,YearFrom):
         monFrom = Select(self.driver.find_element_by_id("MonthFrom"))
-        monFrom.select_by_visible_text(MonthFrom)  # January ,Febuary...
+        monFrom.select_by_value(str(MonthFrom))  # January ,Febuary...
         yeFrom = Select(self.driver.find_element_by_id("YearFrom"))
-        yeFrom.select_by_visible_text(str(YearFrom))  # 1999,...2001....2019
+        yeFrom.select_by_value(str(YearFrom))  # 1999,...2001....2019
 
 
     def __SetEndingMonthYear(self,MonthTo,YearTo):
         monTo = Select(self.driver.find_element_by_id("MonthTo"))
-        monTo.select_by_visible_text(MonthTo)  # January ,Febuary...
+        monTo.select_by_value(str(MonthTo))  # January ,Febuary...
         yeTo = Select(self.driver.find_element_by_id("YearTo"))
-        yeTo.select_by_visible_text(str(YearTo))  # 1999,...2001....2019
+        yeTo.select_by_value(str(YearTo))  # 1999,...2001....2019
 
 
     def __GetListOfBlNumer(self):

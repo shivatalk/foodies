@@ -1,21 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="PTOScrapedDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="UKChallangeDecision">
+  <EntityType Name="UKChallangedDecision">
     <Key>
-      <PropertyRef Name="BL_number" />
+      <PropertyRef Name="BLNumber" />
     </Key>
-    <Property Name="BL_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Concerning_rights_in" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Hearing_Officer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Decision_date" Type="DateTime" Precision="0" />
-    <Property Name="Person_s__or_Company_s__involved" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Provisions_discussed" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BLNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ConcerningRightsIn" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HearingOfficer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DecisionDate" Type="DateTime" Precision="0" />
+    <Property Name="PersonOrCompanyInvolved" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ProvisionsDiscussion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HearingType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Keywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Related_Decisions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RelatedDecisions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="PdfLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="PTOScrapedDBEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="UKChallangeDecisions" EntityType="Self.UKChallangeDecision" />
+    <EntitySet Name="UKChallangedDecisions" EntityType="Self.UKChallangedDecision" />
   </EntityContainer>
 </Schema>

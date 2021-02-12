@@ -5,46 +5,50 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="PTOScrapedDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="UKChallangeDecision">
+        <EntityType Name="UKChallangedDecisions">
           <Key>
-            <PropertyRef Name="BL number" />
+            <PropertyRef Name="BLNumber" />
           </Key>
-          <Property Name="BL number" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Concerning rights in" Type="varchar" MaxLength="50" />
-          <Property Name="Hearing Officer" Type="varchar" MaxLength="50" />
-          <Property Name="Decision date" Type="date" />
-          <Property Name="Person(s) or Company(s) involved" Type="text" />
-          <Property Name="Provisions discussed" Type="text" />
+          <Property Name="BLNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ConcerningRightsIn" Type="text" />
+          <Property Name="HearingOfficer" Type="varchar" MaxLength="50" />
+          <Property Name="DecisionDate" Type="date" />
+          <Property Name="PersonOrCompanyInvolved" Type="text" />
+          <Property Name="ProvisionsDiscussion" Type="text" />
+          <Property Name="HearingType" Type="varchar" MaxLength="50" />
           <Property Name="Keywords" Type="text" />
-          <Property Name="Related Decisions" Type="text" />
+          <Property Name="RelatedDecisions" Type="text" />
           <Property Name="Summary" Type="text" />
           <Property Name="PdfLink" Type="text" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="PTOScrapedDBModelStoreContainer">
-          <EntitySet Name="UKChallangeDecision" EntityType="Self.UKChallangeDecision" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UKChallangedDecisions" EntityType="Self.UKChallangedDecisions" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PTOScrapedDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="UKChallangeDecision">
+        <EntityType Name="UKChallangedDecision">
           <Key>
-            <PropertyRef Name="BL_number" />
+            <PropertyRef Name="BLNumber" />
           </Key>
-          <Property Name="BL_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Concerning_rights_in" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Hearing_Officer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Decision_date" Type="DateTime" Precision="0" />
-          <Property Name="Person_s__or_Company_s__involved" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Provisions_discussed" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BLNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ConcerningRightsIn" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="HearingOfficer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DecisionDate" Type="DateTime" Precision="0" />
+          <Property Name="PersonOrCompanyInvolved" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ProvisionsDiscussion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="HearingType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Keywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Related_Decisions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RelatedDecisions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="PdfLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="PTOScrapedDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="UKChallangeDecisions" EntityType="Self.UKChallangeDecision" />
+          <EntitySet Name="UKChallangedDecisions" EntityType="Self.UKChallangedDecision" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -52,19 +56,21 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="PTOScrapedDBModelStoreContainer" CdmEntityContainer="PTOScrapedDBEntities">
-          <EntitySetMapping Name="UKChallangeDecisions">
-            <EntityTypeMapping TypeName="PTOScrapedDBModel.UKChallangeDecision">
-              <MappingFragment StoreEntitySet="UKChallangeDecision">
-                <ScalarProperty Name="BL_number" ColumnName="BL number" />
-                <ScalarProperty Name="Concerning_rights_in" ColumnName="Concerning rights in" />
-                <ScalarProperty Name="Hearing_Officer" ColumnName="Hearing Officer" />
-                <ScalarProperty Name="Decision_date" ColumnName="Decision date" />
-                <ScalarProperty Name="Person_s__or_Company_s__involved" ColumnName="Person(s) or Company(s) involved" />
-                <ScalarProperty Name="Provisions_discussed" ColumnName="Provisions discussed" />
+          <EntitySetMapping Name="UKChallangedDecisions">
+            <EntityTypeMapping TypeName="PTOScrapedDBModel.UKChallangedDecision">
+              <MappingFragment StoreEntitySet="UKChallangedDecisions">
+                <ScalarProperty Name="BLNumber" ColumnName="BLNumber" />
+                <ScalarProperty Name="ConcerningRightsIn" ColumnName="ConcerningRightsIn" />
+                <ScalarProperty Name="HearingOfficer" ColumnName="HearingOfficer" />
+                <ScalarProperty Name="DecisionDate" ColumnName="DecisionDate" />
+                <ScalarProperty Name="PersonOrCompanyInvolved" ColumnName="PersonOrCompanyInvolved" />
+                <ScalarProperty Name="ProvisionsDiscussion" ColumnName="ProvisionsDiscussion" />
+                <ScalarProperty Name="HearingType" ColumnName="HearingType" />
                 <ScalarProperty Name="Keywords" ColumnName="Keywords" />
-                <ScalarProperty Name="Related_Decisions" ColumnName="Related Decisions" />
+                <ScalarProperty Name="RelatedDecisions" ColumnName="RelatedDecisions" />
                 <ScalarProperty Name="Summary" ColumnName="Summary" />
                 <ScalarProperty Name="PdfLink" ColumnName="PdfLink" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -25,6 +25,6 @@ namespace UKDbAPI
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<UKChallangeDecision> UKChallangeDecisions { get; set; }
+        public virtual DbSet<UKChallangedDecision> UKChallangedDecisions { get; set; }
     }
 }

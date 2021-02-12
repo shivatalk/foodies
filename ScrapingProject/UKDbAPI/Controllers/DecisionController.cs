@@ -14,17 +14,17 @@ namespace UKDbAPI.Controllers
         [HttpGet]
         public IHttpActionResult Name()
         {
-            return Ok(new { msg="Shivam"});
+            return Ok(new { msg="Shivam Singh"});
         }
 
 
         //Api/Data
         [Route("api/Data/post")]
         [HttpPost]
-        public IHttpActionResult InsertData([FromBody] UKChallangeDecision data)
+        public IHttpActionResult InsertData([FromBody] UKChallangedDecision data)
         {
             PTOScrapedDBEntities ent = new PTOScrapedDBEntities();
-            ent.UKChallangeDecisions.Add(data);
+            ent.UKChallangedDecisions.Add(data);
             ent.SaveChanges();
             return Ok(new { msg = "Successfull" });
         }
@@ -32,17 +32,17 @@ namespace UKDbAPI.Controllers
         //Api/Data
         [Route("api/Data/postarray")]
         [HttpPost]
-        public IHttpActionResult InsertDataList([FromBody]List<UKChallangeDecision> data)
+        public IHttpActionResult InsertDataList([FromBody]List<UKChallangedDecision> data)
         {
             PTOScrapedDBEntities ent;
                
-            foreach (UKChallangeDecision item in data)
+            foreach (UKChallangedDecision item in data)
             {
                 
                 try
                 {
                     ent = new PTOScrapedDBEntities();
-                    ent.UKChallangeDecisions.Add(item);
+                    ent.UKChallangedDecisions.Add(item);
                     ent.SaveChanges();
                 }
                 catch (Exception e)
@@ -51,7 +51,7 @@ namespace UKDbAPI.Controllers
                 }
             }
             ent = new PTOScrapedDBEntities();
-            var wholerecord = ent.UKChallangeDecisions.ToList();
+            var wholerecord = ent.UKChallangedDecisions.ToList();
             return Ok(new { msg = "Successfull" ,List=wholerecord});
         }
 
